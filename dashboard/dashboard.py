@@ -11,6 +11,7 @@ st.set_page_config(page_title="Customer Segmentation Dashboard", layout="centere
 
 st.title("📊 Customer Segmentation Dashboard")
 st.markdown("Segmenting customers using K-Means clustering")
+
 @st.cache_data
 def load_data():
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -54,3 +55,4 @@ st.dataframe(df.groupby('Cluster').mean())
 
 st.markdown("---")
 st.markdown("**Developed as part of Algonive Data Analytics Internship**")
+
