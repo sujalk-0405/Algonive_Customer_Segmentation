@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.cluster import KMeans
@@ -12,11 +13,13 @@ st.title("📊 Customer Segmentation Dashboard")
 st.markdown("Segmenting customers using K-Means clustering")
 @st.cache_data
 def load_data():
-    df = pd.read_csv("data/Mall_Customers.csv")
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    DATA_PATH = os.path.join(BASE_DIR, "..", "data", "Mall_Customers.csv")
+
+    df = pd.read_csv(DATA_PATH)
     le = LabelEncoder()
     df['Gender'] = le.fit_transform(df['Gender'])
     return df
-
 df = load_data()
 
 st.subheader("Dataset Preview")
