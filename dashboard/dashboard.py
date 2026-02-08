@@ -21,6 +21,7 @@ def load_data():
     le = LabelEncoder()
     df['Gender'] = le.fit_transform(df['Gender'])
     return df
+
 df = load_data()
 
 st.subheader("Dataset Preview")
@@ -55,4 +56,3 @@ st.dataframe(df.groupby('Cluster').mean())
 
 st.markdown("---")
 st.markdown("**Developed as part of Algonive Data Analytics Internship**")
-
